@@ -1,0 +1,66 @@
+"use strict";
+
+const _ = (str:string):void => console.log(str);
+const no_op = ():void => { return };
+
+//standard single branch
+console.log(1);
+if (0 > 1) _("foo");
+
+console.log(2);
+if (0 > 1) {
+  _("foo");
+}
+
+console.log(3);
+(0 > 1) ? _("foo") : (no_op);
+
+(0 > 1) ? (
+  _("foo")
+) : (no_op);
+
+(0 > 1) ? (() => {
+  _("foo");
+})() : (no_op);
+
+
+
+if (0 > 1) {
+  _("foo");
+} else {
+  _("bar");
+}
+
+(0 > 1) ? (
+  _("foo")
+) : (
+  _("bar")
+);
+
+(0 > 1) ? (() => {
+  _("foo");
+})() : (() => {
+  _("bar");
+})();
+
+if (0 > 1) (0 > 1) ? (
+  _("foo")
+) : (
+  _("bar")
+);
+
+(0 > 1) ? (
+  _("foo")
+) : (0 > 1) ? (
+  _("bar")
+) : (
+  _("baz")
+);
+
+if (0 > 1) {
+  _("foo");
+} else if (0 > 1) {
+  _("bar");
+} else {
+  _("baz");
+}
