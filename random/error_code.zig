@@ -1,3 +1,5 @@
+//works in Zig v0.15.2
+
 const std = @import("std");
 
 var stderr = @constCast(&std.fs.File.stderr().writer(
